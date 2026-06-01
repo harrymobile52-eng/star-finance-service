@@ -1,0 +1,935 @@
+﻿/* ========================================
+     Global Styles + Navbar + Hero + About Us
+======================================== */
+
+/* ---------- CSS Variables ---------- */ :root { --primary-blue: #003b5c; --secondary-blue: #004e82; --dark-blue: #002a43; --gold: #c9a227; --gold-light: #d4b845; --gold-dark: #a68820; --white: #ffffff; --off-white: #f8f9fa; --light-gray: #e9ecef; --gray: #6c757d; --dark-gray: #343a40; --text-dark: #1a1a1a; --text-light: #666666; --shadow: 0 4px 20px rgba(0, 59, 92, 0.1); --shadow-hover: 0 8px 30px rgba(0, 59, 92, 0.2); --transition: all 0.3s ease; --border-radius: 8px; --border-radius-lg: 12px; }
+
+/* ---------- Reset & Global Styles ---------- */ *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; font-size: 16px; line-height: 1.6; color: var(--text-dark); background-color: var(--white); overflow-x: hidden; }
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+ul { list-style: none; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+button, input, select, textarea { font-family: inherit; font-size: inherit; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; color: var(--primary-blue); }
+
+/* ---------- Navbar Styles ---------- */ .navbar { position: sticky; top: 0; z-index: 1000; background: var(--white); box-shadow: var(--shadow); }
+
+.navbar .container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+
+.logo { font-size: 1.75rem; font-weight: 700; color: var(--primary-blue); letter-spacing: -0.5px; }
+
+.logo span { color: var(--gold); }
+
+.nav-links { display: flex; align-items: center; gap: 32px; }
+
+.nav-links a { font-weight: 500; color: var(--text-dark); position: relative; padding: 8px 0; }
+
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: var(--transition); }
+
+.nav-links a:hover { color: var(--primary-blue); }
+
+.nav-links a:hover::after { width: 100%; }
+
+.nav-links .btn-cta { background: var(--primary-blue); color: var(--white) !important; padding: 12px 24px; border-radius: var(--border-radius); font-weight: 600; }
+
+.nav-links .btn-cta::after { display: none; }
+
+.nav-links .btn-cta:hover { background: var(--secondary-blue); transform: translateY(-2px); }
+
+.menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+
+.menu-toggle span { width: 28px; height: 3px; background: var(--primary-blue); border-radius: 3px; transition: var(--transition); }
+
+/* ---------- Hero Section ---------- */ .hero { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%); padding: 100px 0; position: relative; overflow: hidden; }
+
+.hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201, 162, 39, 0.15) 0%, transparent 70%); border-radius: 50%; }
+
+.hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+.hero-content { color: var(--white); position: relative; z-index: 1; }
+
+.hero-headline { font-size: 3.5rem; font-weight: 700; color: var(--white); margin-bottom: 24px; letter-spacing: -1px; }
+
+.hero-subheadline { font-size: 1.25rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 32px; line-height: 1.7; }
+
+.hero-buttons { display: flex; gap: 16px; margin-bottom: 40px; }
+
+.btn { display: inline-block; padding: 16px 32px; border-radius: var(--border-radius); font-weight: 600; font-size: 1rem; text-align: center; cursor: pointer; transition: var(--transition); border: 2px solid transparent; }
+
+.btn-primary { background: var(--gold); color: var(--dark-blue); border-color: var(--gold); }
+
+.btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4); }
+
+.btn-secondary { background: transparent; color: var(--white); border-color: var(--white); }
+
+.btn-secondary:hover { background: var(--white); color: var(--primary-blue); transform: translateY(-3px); }
+
+.trust-badges { display: flex; gap: 24px; }
+
+.trust-badges span { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); padding: 8px 16px; background: rgba(255, 255, 255, 0.1); border-radius: var(--border-radius); border: 1px solid rgba(255, 255, 255, 0.2); }
+
+.trust-badges span::before { content: '✓'; color: var(--gold); font-weight: 700; }
+
+.hero-image { position: relative; z-index: 1; }
+
+.hero-image img { border-radius: var(--border-radius-lg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+
+.stats-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 60px; }
+
+.stat-card { background: var(--white); padding: 24px; border-radius: var(--border-radius-lg); text-align: center; box-shadow: var(--shadow); transition: var(--transition); }
+
+.stat-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+.stat-number { display: block; font-size: 2.5rem; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+
+.stat-label { font-size: 0.95rem; color: var(--text-light); font-weight: 500; }
+
+/* ---------- About Us Section ---------- */ .about { padding: 100px 0; background: var(--off-white); }
+
+.about .container { max-width: 1200px; }
+
+.about-header { text-align: center; margin-bottom: 60px; }
+
+.about-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; }
+
+.about-header p { font-size: 1.15rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+.about-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px; }
+
+.about-profile, .about-mission, .about-vision { background: var(--white); padding: 32px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); transition: var(--transition); }
+
+.about-profile:hover, .about-mission:hover, .about-vision:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+.about-profile h3, .about-mission h3, .about-vision h3 { font-size: 1.35rem; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 3px solid var(--gold); display: inline-block; }
+
+.about-profile p, .about-mission p, .about-vision p { color: var(--text-light); line-height: 1.7; }
+
+.about-experience { display: flex; justify-content: center; margin-bottom: 50px; }
+
+.experience-badge { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); padding: 30px 60px; border-radius: var(--border-radius-lg); text-align: center; box-shadow: var(--shadow); }
+
+.experience-badge .years { display: block; font-size: 3.5rem; font-weight: 700; color: var(--gold); line-height: 1; }
+
+.experience-badge .label { font-size: 1.1rem; color: var(--white); font-weight: 500; }
+
+.about-team { background: var(--white); padding: 32px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); margin-bottom: 30px; }
+
+.about-team h3 { font-size: 1.35rem; margin-bottom: 16px; color: var(--primary-blue); }
+
+.about-team p { color: var(--text-light); line-height: 1.7; }
+
+.about-trust { background: var(--white); padding: 32px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); }
+
+.about-trust h3 { font-size: 1.35rem; margin-bottom: 20px; color: var(--primary-blue); }
+
+.about-trust ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.about-trust li { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--off-white); border-radius: var(--border-radius); font-weight: 500; color: var(--text-dark); }
+
+.about-trust li::before { content: '✓'; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--gold); color: var(--white); border-radius: 50%; font-size: 0.8rem; font-weight: 700; }
+
+/* ---------- Responsive Styles ---------- */
+
+/* Tablet */ @media (max-width: 1024px) { .hero .container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+
+.hero-headline { font-size: 2.75rem; }
+
+.hero-buttons { justify-content: center; }
+
+.trust-badges { justify-content: center; flex-wrap: wrap; }
+
+.hero-image { max-width: 600px; margin: 0 auto; }
+
+.stats-container { grid-template-columns: repeat(2, 1fr); }
+
+.about-content { grid-template-columns: 1fr; gap: 24px; }
+
+.about-trust ul { grid-template-columns: repeat(2, 1fr); }
+
+.nav-links { gap: 20px; }
+
+.logo { font-size: 1.5rem; } }
+
+/* Mobile */ @media (max-width: 768px) { .navbar .container { height: 70px; }
+
+.menu-toggle { display: flex; }
+
+.nav-links { position: absolute; top: 70px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 24px; gap: 20px; box-shadow: var(--shadow); display: none; }
+
+.nav-links.active { display: flex; }
+
+.hero { padding: 60px 0; }
+
+.hero-headline { font-size: 2rem; }
+
+.hero-subheadline { font-size: 1rem; }
+
+.hero-buttons { flex-direction: column; }
+
+.btn { width: 100%; }
+
+.trust-badges { flex-direction: column; align-items: center; }
+
+.stats-container { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.stat-card { padding: 16px; }
+
+.stat-number { font-size: 1.75rem; }
+
+.about { padding: 60px 0; }
+
+.about-header h2 { font-size: 2rem; }
+
+.experience-badge { padding: 24px 40px; }
+
+.experience-badge .years { font-size: 2.5rem; }
+
+.about-trust ul { grid-template-columns: 1fr; } }
+
+/* Small Mobile */ @media (max-width: 480px) { .hero-headline { font-size: 1.75rem; }
+
+.stats-container { grid-template-columns: 1fr; }
+
+.trust-badges span { font-size: 0.8rem; } }
+
+
+/* ---------- Loan Services Section ---------- */ .loan-services { padding: 100px 0; background: var(--white); }
+
+.loan-services .services-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.loan-services .services-header { text-align: center; margin-bottom: 50px; }
+
+.loan-services .services-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; color: var(--primary-blue); }
+
+.loan-services .services-header p { font-size: 1.15rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+.loan-services .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+.loan-services .service-card { background: var(--white); padding: 32px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); border: 1px solid var(--light-gray); transition: var(--transition); position: relative; overflow: hidden; }
+
+.loan-services .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: var(--transition); }
+
+.loan-services .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: var(--gold); }
+
+.loan-services .service-card:hover::before { transform: scaleX(1); }
+
+.loan-services .service-card h3 { font-size: 1.35rem; margin-bottom: 16px; color: var(--primary-blue); }
+
+.loan-services .service-card p { color: var(--text-light); line-height: 1.7; margin-bottom: 24px; }
+
+.loan-services .btn-apply { display: inline-block; padding: 12px 24px; background: var(--primary-blue); color: var(--white); border-radius: var(--border-radius); font-weight: 600; transition: var(--transition); }
+
+.loan-services .btn-apply:hover { background: var(--gold); color: var(--dark-blue); transform: translateX(5px); }
+
+/* ---------- Credit Card Services Section ---------- */ .credit-card-services { padding: 100px 0; background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%); }
+
+.credit-card-services .services-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.credit-card-services .services-header { text-align: center; margin-bottom: 50px; }
+
+.credit-card-services .services-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; color: var(--primary-blue); }
+
+.credit-card-services .services-header p { font-size: 1.15rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+.credit-card-services .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+.credit-card-services .service-card { background: var(--white); padding: 32px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); transition: var(--transition); position: relative; }
+
+.credit-card-services .service-card::after { content: ''; position: absolute; top: 20px; right: 20px; width: 60px; height: 40px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); border-radius: 8px; opacity: 0.2; }
+
+.credit-card-services .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+
+.credit-card-services .service-card:hover::after { opacity: 0.4; }
+
+.credit-card-services .service-card h3 { font-size: 1.35rem; margin-bottom: 16px; color: var(--primary-blue); }
+
+.credit-card-services .service-card p { color: var(--text-light); line-height: 1.7; margin-bottom: 24px; }
+
+.credit-card-services .btn-apply { display: inline-block; padding: 12px 24px; background: var(--primary-blue); color: var(--white); border-radius: var(--border-radius); font-weight: 600; transition: var(--transition); }
+
+.credit-card-services .btn-apply:hover { background: var(--gold); color: var(--dark-blue); }
+
+/* ---------- Insurance Services Section ---------- */ .insurance-services { padding: 100px 0; background: var(--white); }
+
+.insurance-services .services-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.insurance-services .services-header { text-align: center; margin-bottom: 50px; }
+
+.insurance-services .services-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; color: var(--primary-blue); }
+
+.insurance-services .services-header p { font-size: 1.15rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+.insurance-services .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
+
+.insurance-services .service-card { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%); padding: 40px 32px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); transition: var(--transition); text-align: center; }
+
+.insurance-services .service-card:nth-child(2) { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); }
+
+.insurance-services .service-card:nth-child(2) h3, .insurance-services .service-card:nth-child(2) p, .insurance-services .service-card:nth-child(2) .btn-apply { color: var(--dark-blue); }
+
+.insurance-services .service-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--shadow-hover); }
+
+.insurance-services .service-card h3 { font-size: 1.5rem; margin-bottom: 16px; color: var(--white); }
+
+.insurance-services .service-card p { color: rgba(255, 255, 255, 0.85); line-height: 1.7; margin-bottom: 24px; }
+
+.insurance-services .service-card:nth-child(2) p { color: var(--dark-blue); }
+
+.insurance-services .btn-apply { display: inline-block; padding: 12px 28px; background: var(--white); color: var(--primary-blue); border-radius: var(--border-radius); font-weight: 600; transition: var(--transition); }
+
+.insurance-services .service-card:nth-child(2) .btn-apply { background: var(--primary-blue); color: var(--white); }
+
+.insurance-services .btn-apply:hover { background: var(--gold); color: var(--dark-blue); }
+
+/* ---------- Partner Banks Section ---------- */ .partner-banks { padding: 100px 0; background: var(--off-white); }
+
+.partner-banks .partners-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.partner-banks .partners-header { text-align: center; margin-bottom: 50px; }
+
+.partner-banks .partners-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; color: var(--primary-blue); }
+
+.partner-banks .partners-header p { font-size: 1.15rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+.partner-banks .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+
+.partner-banks .partner-card { background: var(--white); padding: 32px 24px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; transition: var(--transition); border: 2px solid transparent; }
+
+.partner-banks .partner-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--gold); }
+
+.partner-banks .partner-card h3 { font-size: 1.1rem; color: var(--primary-blue); font-weight: 600; text-align: center; letter-spacing: -0.3px; }
+
+/* ---------- Responsive Styles ---------- */
+
+/* Tablet */ @media (max-width: 1024px) { .loan-services, .credit-card-services, .insurance-services, .partner-banks { padding: 80px 0; }
+
+.loan-services .services-header h2, .credit-card-services .services-header h2, .insurance-services .services-header h2, .partner-banks .partners-header h2 { font-size: 2.25rem; }
+
+.loan-services .services-grid, .credit-card-services .services-grid, .partner-banks .partners-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Mobile */ @media (max-width: 768px) { .loan-services, .credit-card-services, .insurance-services, .partner-banks { padding: 60px 0; }
+
+.loan-services .services-header, .credit-card-services .services-header, .insurance-services .services-header, .partner-banks .partners-header { margin-bottom: 40px; }
+
+.loan-services .services-header h2, .credit-card-services .services-header h2, .insurance-services .services-header h2, .partner-banks .partners-header h2 { font-size: 1.875rem; }
+
+.loan-services .services-grid, .credit-card-services .services-grid, .insurance-services .services-grid, .partner-banks .partners-grid { grid-template-columns: 1fr; gap: 20px; }
+
+.loan-services .service-card, .credit-card-services .service-card, .insurance-services .service-card, .partner-banks .partner-card { padding: 24px; }
+
+.loan-services .service-card h3, .credit-card-services .service-card h3 { font-size: 1.2rem; } }
+
+
+
+
+
+
+
+======================================== EMI Calculator + Eligibility Checker + Testimonials + FAQ ======================================== */
+
+/* ---------- EMI Calculator Section ---------- */ .emi-calculator { padding: 100px 0; background: linear-gradient(135deg, var(--off-white) 0%, var(--white) 100%); }
+
+.emi-calculator .calculator-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+.emi-calculator .calculator-header { margin-bottom: 40px; grid-column: 1 / -1; }
+
+.emi-calculator .calculator-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; color: var(--primary-blue); }
+
+.emi-calculator .calculator-header p { font-size: 1.15rem; color: var(--text-light); }
+
+.emi-calculator .calculator-form { background: var(--white); padding: 40px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); }
+
+.emi-calculator .form-group { margin-bottom: 24px; }
+
+.emi-calculator .form-group label { display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 0.95rem; }
+
+.emi-calculator .form-group input { width: 100%; padding: 14px 18px; border: 2px solid var(--light-gray); border-radius: var(--border-radius); font-size: 1rem; color: var(--text-dark); transition: var(--transition); background: var(--white); }
+
+.emi-calculator .form-group input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.15); }
+
+.emi-calculator .form-group input::placeholder { color: var(--gray); }
+
+.emi-calculator .btn-calculate { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--dark-blue); border: none; border-radius: var(--border-radius); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+
+.emi-calculator .btn-calculate:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4); }
+
+.emi-calculator .emi-result { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%); padding: 40px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); color: var(--white); }
+
+.emi-calculator .emi-result h3 { font-size: 1.5rem; color: var(--white); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid rgba(255, 255, 255, 0.2); }
+
+.emi-calculator .result-amount { text-align: center; padding: 24px; background: rgba(255, 255, 255, 0.1); border-radius: var(--border-radius); margin-bottom: 24px; }
+
+.emi-calculator .result-amount span:first-child { display: block; font-size: 0.95rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 8px; }
+
+.emi-calculator .result-amount .amount { display: block; font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+
+.emi-calculator .result-details { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.emi-calculator .total-interest, .emi-calculator .total-payment { padding: 16px; background: rgba(255, 255, 255, 0.1); border-radius: var(--border-radius); }
+
+.emi-calculator .total-interest span:first-child, .emi-calculator .total-payment span:first-child { display: block; font-size: 0.85rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 4px; }
+
+.emi-calculator .total-interest span:last-child, .emi-calculator .total-payment span:last-child { font-size: 1.25rem; font-weight: 600; color: var(--white); }
+
+/* ---------- Eligibility Checker Section ---------- */ .eligibility-checker { padding: 100px 0; background: var(--white); }
+
+.eligibility-checker .checker-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+.eligibility-checker .checker-header { margin-bottom: 40px; grid-column: 1 / -1; }
+
+.eligibility-checker .checker-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; color: var(--primary-blue); }
+
+.eligibility-checker .checker-header p { font-size: 1.15rem; color: var(--text-light); }
+
+.eligibility-checker .checker-form { background: var(--white); padding: 40px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); border: 2px solid var(--light-gray); }
+
+.eligibility-checker .form-group { margin-bottom: 24px; }
+
+.eligibility-checker .form-group label { display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 0.95rem; }
+
+.eligibility-checker .form-group input, .eligibility-checker .form-group select { width: 100%; padding: 14px 18px; border: 2px solid var(--light-gray); border-radius: var(--border-radius); font-size: 1rem; color: var(--text-dark); transition: var(--transition); background: var(--white); appearance: none; }
+
+.eligibility-checker .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 18px center; padding-right: 48px; }
+
+.eligibility-checker .form-group input:focus, .eligibility-checker .form-group select:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.15); }
+
+.eligibility-checker .form-group input::placeholder { color: var(--gray); }
+
+.eligibility-checker .btn-check { width: 100%; padding: 16px; background: var(--primary-blue); color: var(--white); border: none; border-radius: var(--border-radius); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+
+.eligibility-checker .btn-check:hover { background: var(--secondary-blue); transform: translateY(-3px); }
+
+.eligibility-checker .eligibility-result { background: var(--off-white); padding: 40px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); }
+
+.eligibility-checker .eligibility-result h3 { font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 3px solid var(--gold); }
+
+.eligibility-checker .result-status { display: flex; align-items: center; justify-content: space-between; padding: 20px; background: var(--white); border-radius: var(--border-radius); margin-bottom: 24px; }
+
+.eligibility-checker .result-status span:first-child { font-weight: 600; color: var(--text-dark); }
+
+.eligibility-checker .result-status .status { font-size: 1.25rem; font-weight: 700; color: var(--gray); }
+
+.eligibility-checker .result-details { background: var(--white); padding: 24px; border-radius: var(--border-radius); }
+
+.eligibility-checker .eligible-amount, .eligibility-checker .interest-rate { display: flex; justify-content: space-between; padding: 12px 0; }
+
+.eligibility-checker .eligible-amount:not(:last-child), .eligibility-checker .interest-rate:not(:last-child) { border-bottom: 1px solid var(--light-gray); }
+
+.eligibility-checker .eligible-amount span:first-child, .eligibility-checker .interest-rate span:first-child { color: var(--text-light); }
+
+.eligibility-checker .eligible-amount span:last-child, .eligibility-checker .interest-rate span:last-child { font-weight: 600; color: var(--primary-blue); }
+
+/* ---------- Testimonials Section ---------- */ .testimonials { padding: 100px 0; background: linear-gradient(180deg, var(--primary-blue) 0%, var(--dark-blue) 100%); position: relative; overflow: hidden; }
+
+.testimonials::before { content: '"'; position: absolute; top: 50px; left: 10%; font-size: 300px; color: rgba(201, 162, 39, 0.1); font-weight: 700; line-height: 1; }
+
+.testimonials .testimonials-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+.testimonials .testimonials-header { text-align: center; margin-bottom: 50px; }
+
+.testimonials .testimonials-header h2 { font-size: 2.75rem; margin-bottom: 16px; color: var(--white); }
+
+.testimonials .testimonials-header p { font-size: 1.15rem; color: rgba(255, 255, 255, 0.8); }
+
+.testimonials .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+.testimonials .testimonial-card { background: var(--white); padding: 32px; border-radius: var(--border-radius-lg); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); transition: var(--transition); }
+
+.testimonials .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3); }
+
+.testimonials .star-rating { color: var(--gold); font-size: 1.25rem; margin-bottom: 16px; letter-spacing: 4px; }
+
+.testimonials .testimonial-feedback { font-size: 1rem; line-height: 1.7; color: var(--text-light); font-style: italic; margin-bottom: 20px; }
+
+.testimonials .customer-name { font-size: 1.1rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 4px; }
+
+.testimonials .customer-location { font-size: 0.9rem; color: var(--gray); }
+
+/* ---------- FAQ Section ---------- */ .faq { padding: 100px 0; background: var(--off-white); }
+
+.faq .faq-container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+.faq .faq-header { text-align: center; margin-bottom: 50px; }
+
+.faq .faq-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; color: var(--primary-blue); }
+
+.faq .faq-header p { font-size: 1.15rem; color: var(--text-light); }
+
+.faq .faq-list { display: flex; flex-direction: column; gap: 16px; }
+
+.faq .faq-item { background: var(--white); border-radius: var(--border-radius-lg); box-shadow: var(--shadow); overflow: hidden; transition: var(--transition); }
+
+.faq .faq-item:hover { box-shadow: var(--shadow-hover); }
+
+.faq .faq-item summary { padding: 24px; font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); cursor: pointer; display: flex; align-items: center; justify-content: space-between; list-style: none; }
+
+.faq .faq-item summary::-webkit-details-marker { display: none; }
+
+.faq .faq-item summary::after { content: '+'; font-size: 1.5rem; color: var(--gold); font-weight: 700; transition: var(--transition); }
+
+.faq .faq-item[open] summary::after { content: '−'; transform: rotate(180deg); }
+
+.faq .faq-item summary:hover { background: rgba(201, 162, 39, 0.05); }
+
+.faq .faq-item p { padding: 0 24px 24px; line-height: 1.7; color: var(--text-light); }
+
+/* ---------- Responsive Styles ---------- */
+
+/* Tablet */ @media (max-width: 1024px) { .emi-calculator .calculator-container, .eligibility-checker .checker-container { grid-template-columns: 1fr; gap: 40px; }
+
+.testimonials { padding: 80px 0; }
+
+.faq { padding: 80px 0; } }
+
+/* Mobile */ @media (max-width: 768px) { .emi-calculator, .eligibility-checker, .testimonials, .faq { padding: 60px 0; }
+
+.emi-calculator .calculator-header h2, .eligibility-checker .checker-header h2, .testimonials .testimonials-header h2, .faq .faq-header h2 { font-size: 1.875rem; }
+
+.emi-calculator .calculator-form, .eligibility-checker .checker-form, .emi-calculator .emi-result, .eligibility-checker .eligibility-result { padding: 24px; }
+
+.emi-calculator .result-amount .amount { font-size: 2rem; }
+
+.emi-calculator .result-details { grid-template-columns: 1fr; }
+
+.testimonials .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
+
+.testimonials::before { font-size: 150px; top: 20px; }
+
+.faq .faq-item summary { padding: 20px; font-size: 1rem; }
+
+.faq .faq-item p { padding: 0 20px 20px; } }
+
+
+
+
+
+======================================== STAR FINANCE SERVICE - STYLE.CSS  Contact + Footer + Utilities + Animations ======================================== */
+
+/* ---------- Contact Section ---------- */ .contact { padding: 100px 0; background: var(--white); }
+
+.contact .contact-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.contact .contact-header { text-align: center; margin-bottom: 50px; }
+
+.contact .contact-header h2 { font-size: 2.75rem; margin-bottom: 16px; letter-spacing: -0.5px; color: var(--primary-blue); }
+
+.contact .contact-header p { font-size: 1.15rem; color: var(--text-light); }
+
+.contact .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; }
+
+.contact .contact-info { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%); padding: 40px; border-radius: var(--border-radius-lg); color: var(--white); }
+
+.contact .contact-info h3 { font-size: 1.5rem; color: var(--white); margin-bottom: 24px; }
+
+.contact .contact-details { margin-bottom: 30px; }
+
+.contact .contact-item { margin-bottom: 24px; }
+
+.contact .contact-item h4 { font-size: 0.9rem; color: var(--gold); margin-bottom: 4px; font-weight: 600; }
+
+.contact .contact-item p { font-size: 1.1rem; color: var(--white); }
+
+.contact .whatsapp-button { margin-bottom: 30px; }
+
+.contact .whatsapp-button a { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: #25D366; color: var(--white); border-radius: var(--border-radius); font-weight: 600; transition: var(--transition); }
+
+.contact .whatsapp-button a:hover { background: #20BD5A; transform: translateY(-3px); }
+
+.contact .map-placeholder { border-radius: var(--border-radius); overflow: hidden; }
+
+.contact .map-placeholder iframe { display: block; }
+
+.contact .contact-form { background: var(--off-white); padding: 40px; border-radius: var(--border-radius-lg); box-shadow: var(--shadow); }
+
+.contact .contact-form h3 { font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 24px; }
+
+.contact .form-group { margin-bottom: 20px; }
+
+.contact .form-group label { display: block; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 0.95rem; }
+
+.contact .form-group input, .contact .form-group textarea { width: 100%; padding: 14px 18px; border: 2px solid var(--light-gray); border-radius: var(--border-radius); font-size: 1rem; color: var(--text-dark); transition: var(--transition); background: var(--white); resize: vertical; }
+
+.contact .form-group input:focus, .contact .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.15); }
+
+.contact .form-group input::placeholder, .contact .form-group textarea::placeholder { color: var(--gray); }
+
+.contact .btn-submit { width: 100%; padding: 16px; background: var(--primary-blue); color: var(--white); border: none; border-radius: var(--border-radius); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+
+.contact .btn-submit:hover { background: var(--secondary-blue); transform: translateY(-3px); }
+
+/* ---------- Footer Section ---------- */ .footer { background: var(--dark-blue); padding: 80px 0 0; color: var(--white); }
+
+.footer .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.footer .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 40px; padding-bottom: 60px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+.footer .footer-section h3 { font-size: 1.1rem; color: var(--gold); margin-bottom: 20px; font-weight: 600; }
+
+.footer .footer-section ul { display: flex; flex-direction: column; gap: 12px; }
+
+.footer .footer-section a { color: rgba(255, 255, 255, 0.75); font-size: 0.95rem; transition: var(--transition); }
+
+.footer .footer-section a:hover { color: var(--gold); padding-left: 5px; }
+
+.footer .social-media { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
+
+.footer .social-media a { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; color: var(--white); font-size: 0.85rem; transition: var(--transition); }
+
+.footer .social-media a:hover { background: var(--gold); color: var(--dark-blue); transform: translateY(-3px); }
+
+.footer .footer-contact h4 { font-size: 0.9rem; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
+
+.footer .footer-contact p { color: rgba(255, 255, 255, 0.75); font-size: 0.95rem; margin-bottom: 8px; }
+
+.footer .footer-bottom { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+
+.footer .footer-links { display: flex; gap: 24px; }
+
+.footer .footer-links a { color: rgba(255, 255, 255, 0.75); font-size: 0.9rem; transition: var(--transition); }
+
+.footer .footer-links a:hover { color: var(--gold); }
+
+.footer .copyright p { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+
+/* ---------- WhatsApp Floating Button ---------- */ .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 1000; transition: var(--transition); }
+
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5); }
+
+.whatsapp-float::before { content: ''; width: 28px; height: 28px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.496.099-.198.05-.371-.025-.52-.075-.148-.671-1.641-.92-2.22-.24-.564-.48-.569-.671-.569h-.364c-.669 0-.865.02-1.148.149-.271.124-.461.274-.654.496-.193.222-.654.745-.654 1.823 0 1.078.801 2.114 1.918 2.991.272.215.49.345.67.353.178.009.37-.001.54-.098.172-.099.407-.222.78-.706.371-.485.495-1.159.544-1.35.049-.192.025-.347-.124-.52z'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+
+/* ---------- Scroll Reveal Animations ---------- */ .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease; }
+
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+
+.reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease; }
+
+.reveal-right.active { opacity: 1; transform: translateX(0); }
+
+.revealScale { opacity: 0; transform: scale(0.8); transition: all 0.8s ease; }
+
+.revealScale.active { opacity: 1; transform: scale(1); }
+
+/* ---------- Utility Classes ---------- */ .text-center { text-align: center; } .text-left { text-align: left; } .text-right { text-align: right; }
+
+.mt-1 { margin-top: 8px; } .mt-2 { margin-top: 16px; } .mt-3 { margin-top: 24px; } .mt-4 { margin-top: 32px; } .mt-5 { margin-top: 40px; }
+
+.mb-1 { margin-bottom: 8px; } .mb-2 { margin-bottom: 16px; } .mb-3 { margin-bottom: 24px; } .mb-4 { margin-bottom: 32px; } .mb-5 { margin-bottom: 40px; }
+
+.pt-1 { padding-top: 8px; } .pt-2 { padding-top: 16px; } .pt-3 { padding-top: 24px; } .pt-4 { padding-top: 32px; } .pt-5 { padding-top: 40px; }
+
+.pb-1 { padding-bottom: 8px; } .pb-2 { padding-bottom: 16px; } .pb-3 { padding-bottom: 24px; } .pb-4 { padding-bottom: 32px; } .pb-5 { padding-bottom: 40px; }
+
+.d-flex { display: flex; } .d-block { display: block; } .d-none { display: none; } .d-grid { display: grid; }
+
+.flex-center { display: flex; align-items: center; justify-content: center; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+/* ---------- Global Responsive Improvements ---------- */ @media (max-width: 1024px) { .contact .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+
+.contact .contact-info { order: 2; }
+
+.contact .contact-form { order: 1; }
+
+.footer .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+
+.footer .footer-section:nth-child(4), .footer .footer-section:nth-child(5) { grid-column: span 1; } }
+
+@media (max-width: 768px) { .contact, .footer { padding: 60px 0 0; }
+
+.contact .contact-header h2, .footer .footer-grid { font-size: 1.875rem; }
+
+.contact .contact-info, .contact .contact-form { padding: 24px; }
+
+.contact .map-placeholder iframe { height: 200px; }
+
+.footer .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; padding-bottom: 40px; }
+
+.footer .footer-section h3 { margin-bottom: 16px; }
+
+.footer .footer-section ul { gap: 10px; }
+
+.footer .footer-bottom { flex-direction: column; text-align: center; padding: 24px 0; }
+
+.footer .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+.whatsapp-float { bottom: 20px; right: 20px; width: 54px; height: 54px; } }
+
+@media (max-width: 480px) { .contact .contact-header h2 { font-size: 1.5rem; }
+
+.contact .whatsapp-button a { width: 100%; justify-content: center; }
+
+.footer .footer-grid { grid-template-columns: 1fr; gap: 30px; } }
+
+/* ---------- Print Styles ---------- */ @media print { .navbar, .menu-toggle, .whatsapp-float, .btn-apply, .btn-calculate, .btn-check, .btn-submit { display: none !important; }
+
+body { background: white; color: black; }
+
+.footer { display: none; } }
+
+/* ---------- Reduced Motion ---------- */ @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+
+html { scroll-behavior: auto; } }
+
+
+/* ---------- Fix 1: Reduce White Spaces Between Sections ---------- */ .hero { padding: 80px 0; }
+
+.about { padding: 80px 0; } .about .about-header { margin-bottom: 40px; } .about .about-content { gap: 24px; margin-bottom: 32px; } .about .about-experience { margin-bottom: 32px; } .about .about-team, .about .about-trust { margin-bottom: 24px; }
+
+.loan-services { padding: 80px 0; } .loan-services .services-header { margin-bottom: 40px; }
+
+.credit-card-services { padding: 80px 0; } .credit-card-services .services-header { margin-bottom: 40px; }
+
+.insurance-services { padding: 80px 0; } .insurance-services .services-header { margin-bottom: 40px; }
+
+.partner-banks { padding: 80px 0; } .partner-banks .partners-header { margin-bottom: 40px; }
+
+.emi-calculator { padding: 80px 0; } .eligibility-checker { padding: 80px 0; } .testimonials { padding: 80px 0; } .faq { padding: 80px 0; } .contact { padding: 80px 0; }
+
+/* ---------- Fix 2: Testimonials Section Overlapping ---------- */ .testimonials { position: relative; z-index: 1; background: var(--primary-blue); padding: 80px 0; }
+
+.testimonials::before { z-index: -1; }
+
+.testimonials .testimonials-container { position: relative; z-index: 2; }
+
+.testimonials .testimonial-card { position: relative; z-index: 2; transform: none; }
+
+.testimonials .testimonial-card:hover { transform: translateY(-5px); }
+
+/* ---------- Fix 3: About Section Text Visibility ---------- */ .about { background: var(--white); }
+
+.about-header h2 { color: var(--primary-blue); }
+
+.about-header p { color: var(--text-light); }
+
+.about-profile p, .about-mission p, .about-vision p { color: var(--text-dark); }
+
+.about-team p { color: var(--text-dark); }
+
+.about-trust li { color: var(--text-dark); background: var(--light-gray); }
+
+.about .container { padding: 0 20px; }
+
+/* ---------- Fix 4: Insurance Section Card Alignment ---------- */ .insurance-services .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+
+.insurance-services .service-card { padding: 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px; }
+
+.insurance-services .service-card h3 { font-size: 1.35rem; }
+
+.insurance-services .service-card p { flex-grow: 1; }
+
+/* ---------- Fix 5: Consistent Spacing & Typography ---------- */ h1, h2, h3, h4, h5, h6 { line-height: 1.3; }
+
+.container { padding: 0 24px; }
+
+.services-header, .partners-header, .checker-header, .calculator-header, .faq-header, .testimonials-header, .contact-header { margin-bottom: 48px; }
+
+h2 { font-size: 2.5rem; }
+
+p { line-height: 1.65; }
+
+/* ---------- Responsive Adjustments ---------- */ @media (max-width: 1024px) { .hero { padding: 60px 0; } .about { padding: 60px 0; } .loan-services, .credit-card-services, .insurance-services, .partner-banks, .emi-calculator, .eligibility-checker, .testimonials, .faq, .contact { padding: 60px 0; }
+
+.insurance-services .services-grid { grid-template-columns: repeat(2, 1fr); } }
+
+@media (max-width: 768px) { h2 { font-size: 1.75rem; }
+
+.insurance-services .services-grid { grid-template-columns: 1fr; max-width: 400px; }
+
+.insurance-services .service-card { min-height: auto; padding: 28px; }
+
+.testimonials::before { display: none; }
+
+.stats-container { grid-template-columns: repeat(2, 1fr); margin-top: 40px; }
+
+.about-content { grid-template-columns: 1fr; }
+
+.services-header, .partners-header { margin-bottom: 32px; } }
+
+@media (max-width: 480px) { .hero-headline { font-size: 1.75rem; }
+
+.hero-buttons { flex-direction: column; }
+
+.trust-badges { flex-direction: column; }
+
+.stats-container { grid-template-columns: 1fr; } }
+
+
+/* ---------- 1. Hero Section Visual Impact ---------- */ .hero { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 50%, var(--primary-blue) 100%); padding: 90px 0 70px; position: relative; overflow: hidden; }
+
+.hero::before { content: ''; position: absolute; top: -30%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201, 162, 39, 0.2) 0%, transparent 60%); border-radius: 50%; animation: pulse-glow 4s ease-in-out infinite; }
+
+.hero::after { content: ''; position: absolute; bottom: -20%; left: -5%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(0, 78, 130, 0.3) 0%, transparent 70%); border-radius: 50%; }
+
+@keyframes pulse-glow { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.1); opacity: 1; } }
+
+.hero .container { position: relative; z-index: 2; }
+
+.hero-headline { font-size: 3.25rem; background: linear-gradient(90deg, var(--white) 0%, var(--gold) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+.hero-subheadline { max-width: 520px; }
+
+.hero-buttons { gap: 20px; }
+
+.btn { padding: 14px 28px; letter-spacing: 0.5px; }
+
+.btn-primary { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); border: none; }
+
+.btn-secondary { background: transparent; border: 2px solid rgba(255, 255, 255, 0.6); }
+
+/* ---------- 2. Premium Finance Company Look ---------- */ :root { --gold-accent: #c9a227; --premium-shadow: 0 10px 40px rgba(0, 59, 92, 0.15); --card-premium: 0 4px 20px rgba(0, 0, 0, 0.08); }
+
+/* Add gold accent borders */ .about-profile h3, .about-mission h3, .about-vision h3 { border-bottom: 3px solid var(--gold); padding-bottom: 10px; }
+
+/* Premium badge styling */ .experience-badge { background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); border: 2px solid var(--gold); }
+
+.experience-badge .years { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); }
+
+/* ---------- 3. Partner Banks Card Design ---------- */ .partner-banks .partner-card { padding: 28px 20px; background: var(--white); border: 2px solid var(--light-gray); border-radius: 12px; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100px; }
+
+.partner-banks .partner-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0, 59, 92, 0.15); }
+
+.partner-banks .partner-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--primary-blue); letter-spacing: -0.2px; text-align: center; }
+
+.partner-banks .partners-grid { gap: 20px; }
+
+/* ---------- 4. EMI Calculator Styling ---------- */ .emi-calculator { background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%); padding: 70px 0; }
+
+.emi-calculator .calculator-container { gap: 40px; }
+
+.emi-calculator .calculator-form { padding: 32px; border-radius: 16px; border: 1px solid var(--light-gray); }
+
+.emi-calculator .form-group { margin-bottom: 20px; }
+
+.emi-calculator .form-group label { font-size: 0.9rem; color: var(--text-dark); }
+
+.emi-calculator .form-group input { padding: 12px 16px; border-radius: 8px; }
+
+.emi-calculator .btn-calculate { padding: 14px; border-radius: 8px; }
+
+.emi-calculator .emi-result { padding: 32px; border-radius: 16px; }
+
+.emi-calculator .emi-result h3 { font-size: 1.25rem; margin-bottom: 20px; }
+
+.emi-calculator .result-amount { padding: 20px; margin-bottom: 20px; }
+
+.emi-calculator .result-amount .amount { font-size: 2rem; }
+
+/* ---------- 5. Eligibility Checker Styling ---------- */ .eligibility-checker { padding: 70px 0; }
+
+.eligibility-checker .checker-container { gap: 40px; }
+
+.eligibility-checker .checker-form { padding: 32px; border-radius: 16px; border: 1px solid var(--light-gray); }
+
+.eligibility-checker .form-group { margin-bottom: 20px; }
+
+.eligibility-checker .form-group label { font-size: 0.9rem; }
+
+.eligibility-checker .form-group input, .eligibility-checker .form-group select { padding: 12px 16px; border-radius: 8px; }
+
+.eligibility-checker .btn-check { padding: 14px; border-radius: 8px; }
+
+.eligibility-checker .eligibility-result { padding: 32px; border-radius: 16px; }
+
+.eligibility-checker .eligibility-result h3 { font-size: 1.25rem; margin-bottom: 20px; }
+
+.eligibility-checker .result-status { padding: 16px; margin-bottom: 20px; }
+
+/* ---------- 6. Reduce Unnecessary White Space ---------- */ .section-padding { padding: 60px 0; }
+
+.hero { padding: 80px 0 60px; } .about { padding: 70px 0; } .loan-services { padding: 70px 0; } .credit-card-services { padding: 70px 0; } .insurance-services { padding: 70px 0; } .partner-banks { padding: 70px 0; }
+
+/* ---------- 7. Improve Section Spacing Consistency ---------- */ .section-header { margin-bottom: 40px; }
+
+.section-header h2 { font-size: 2.25rem; margin-bottom: 12px; }
+
+.section-header p { font-size: 1.05rem; max-width: 550px; }
+
+/* Grid consistency */ .services-grid { gap: 24px; }
+
+/* Card padding consistency */ .service-card { padding: 28px; }
+
+/* Result card consistency */ .result-card { padding: 24px; }
+
+/* Responsive refinements */ @media (max-width: 1024px) { .hero { padding: 60px 0 50px; } .hero-headline { font-size: 2.5rem; } .about { padding: 60px 0; } .loan-services, .credit-card-services, .insurance-services, .partner-banks { padding: 60px 0; } .emi-calculator, .eligibility-checker { padding: 60px 0; }
+
+.section-header h2 { font-size: 1.875rem; } }
+
+@media (max-width: 768px) { .hero { padding: 50px 0 40px; } .hero-headline { font-size: 1.875rem; }
+
+.about, .loan-services, .credit-card-services, .insurance-services, .partner-banks, .emi-calculator, .eligibility-checker { padding: 50px 0; }
+
+.section-header { margin-bottom: 32px; } .section-header h2 { font-size: 1.5rem; }
+
+.emi-calculator .calculator-container, .eligibility-checker .checker-container { gap: 30px; }
+
+.emi-calculator .calculator-form, .emi-calculator .emi-result, .eligibility-checker .checker-form, .eligibility-checker .eligibility-result { padding: 24px; } }
+
+ Partner Bank Card Text Styling ---------- */ .partner-banks .partner-card { background: var(--white); border: 2px solid #e2e6ea; padding: 30px 20px; }
+
+.partner-banks .partner-card h3 { color: #002a43; font-weight: 700; font-size: 1rem; line-height: 1.4; text-align: center; letter-spacing: -0.3px; }
+
+.partner-banks .partner-card:hover { border-color: var(--gold); }
+
+.partner-banks .partner-card:hover h3 { color: var(--primary-blue); }
+
+.partner-banks .partners-grid { row-gap: 20px; column-gap: 20px; }
+
+.partner-banks .partner-card { min-height: 90px; display: flex; align-items: center; justify-content: center; }
+
+
+
+
+Testimonials Grid Fix ---------- */ .testimonials .testimonials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: stretch; }
+
+.testimonials .testimonial-card { background: var(--white); padding: 28px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); display: flex; flex-direction: column; height: 100%; min-height: 280px; }
+
+.testimonials .star-rating { margin-bottom: 16px; flex-shrink: 0; }
+
+.testimonials .testimonial-feedback { flex-grow: 1; margin-bottom: 20px; line-height: 1.65; }
+
+.testimonials .customer-name { flex-shrink: 0; margin-bottom: 4px; }
+
+.testimonials .customer-location { flex-shrink: 0; }
+
+/* Responsive */ @media (max-width: 1200px) { .testimonials .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+
+@media (max-width: 768px) { .testimonials .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
+
+.testimonials .testimonial-card { min-height: auto; padding: 24px; } }
+
+/*
+
+.partner-card img{
+    width:100px;
+    height:60px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 10px;
+}
+
+.partner-card{
+    text-align:center;
+} 
+
+
+
+
+
+
+
+
